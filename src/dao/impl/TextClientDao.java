@@ -61,6 +61,7 @@ public class TextClientDao implements ClientDao {
     public void AddClient(Client client) {
         clientList.add(client);
         writeClientsToFile();
+        //todo
     }
 
 
