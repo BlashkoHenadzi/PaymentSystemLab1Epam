@@ -1,0 +1,37 @@
+package beans;
+
+public class Client {
+    private String name;
+    private String surname;
+    private int clientcardscount;
+
+    public Client(String name, String surname, PaymentCard[] clientcards, int clientcardscount) {
+        this.name = name;
+        this.surname = surname;
+        this.clientcardscount = clientcardscount;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getClientcardscount() {
+        return clientcardscount;
+    }
+
+    public void setClientcardscount(int clientcardscount) {
+        this.clientcardscount = clientcardscount;
+    }
+}
