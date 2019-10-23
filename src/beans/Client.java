@@ -1,14 +1,16 @@
 package beans;
 
 public class Client {
+    private int id;
     private String name;
     private String surname;
     private int clientcardscount;
 
-    public Client(String name, String surname, PaymentCard[] clientcards, int clientcardscount) {
+    public Client(String name, String surname, PaymentCard[] clientcards, int clientcardscount,int id) {
         this.name = name;
         this.surname = surname;
         this.clientcardscount = clientcardscount;
+        this.id = id;
     }
 
     public String getSurname() {
@@ -33,5 +35,13 @@ public class Client {
 
     public void setClientcardscount(int clientcardscount) {
         this.clientcardscount = clientcardscount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

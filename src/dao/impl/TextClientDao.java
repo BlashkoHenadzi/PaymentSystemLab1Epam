@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TextClientDao implements ClientDao {
     private static String file_path = "clients.xml";
-    private ArrayList<Client> clientList;
+    private List<Client> clientList;
     public TextClientDao(){
         clientList = new ArrayList<Client>();
         if (new File(file_path).exists()){
@@ -61,7 +61,6 @@ public class TextClientDao implements ClientDao {
     public void AddClient(Client client) {
         clientList.add(client);
         writeClientsToFile();
-        //todo
     }
 
 
@@ -74,11 +73,16 @@ public class TextClientDao implements ClientDao {
 
     @Override
     public void UpdateClient(Client client) {
-        //todo
+        for (Client clientelem :clientList){
+            if (client.getId() == clientelem.getId())
+                clientelem = client;
+
+        }
     }
 
     @Override
     public List<Client> ReadClient() {
+
         return clientList;
     }
 
