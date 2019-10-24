@@ -5,10 +5,7 @@ import dao.ClientDao;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,11 +42,12 @@ public class TextClientDao implements ClientDao {
                 if (!file.createNewFile())
                     throw new IOException();
             }
-                FileOutputStream outputStream = new FileOutputStream(file_path);
-                XMLEncoder xmlEncoder = new XMLEncoder(outputStream);
+                //FileOutputStream outputStream = new FileOutputStream(file_path);
+                XMLEncoder xmlEncoder = new XMLEncoder(new BufferedOutputStream(
+                        new FileOutputStream(file_path)));
                 xmlEncoder.writeObject(clientList);
                 xmlEncoder.close();
-                outputStream.close();
+                //outputStream.close();
 
         }
         catch (IOException e){
@@ -63,12 +61,19 @@ public class TextClientDao implements ClientDao {
         writeClientsToFile();
     }
 
+    public List<Client> sortId() {
+         clientList.sort(new SortClientByIdASC());
+         return clientList;
+    }
 
 
     @Override
-    public void DeleteClient(Client client) {
+    public void DeleteClient(int id) {
+        for (Client elem:clientList) {
+            if (elem.getId() == id)
+                clientList.remove(elem);
 
-        clientList.remove(client);
+        }
     }
 
     @Override

@@ -17,4 +17,10 @@ public class CreditCard extends PaymentCard {
     public void setCreditbalance(int creditbalance) {
         this.creditbalance = creditbalance;
     }
+
+    @Override
+    public String toString() {
+        return "cardnamber"+getCardnumber()+"validthrue:"+getValidthrue()+"balance"+getBalance()+" "+getCardholderName()+" "+
+                getCardholderSurname()+"creditbalance:"+creditbalance;
+    }
 }

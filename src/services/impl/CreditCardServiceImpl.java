@@ -18,9 +18,8 @@ public class CreditCardServiceImpl implements CreditCardService {
     }
 
     @Override
-    public void DeleteCreditCard(CreditCard creditCard) {
-        if (creditCard!=null)
-            creditCardDao.DeleteCreditCard(creditCard);
+    public void DeleteCreditCard(int cardnumber) {
+            creditCardDao.DeleteCreditCard(cardnumber);
     }
 
     @Override

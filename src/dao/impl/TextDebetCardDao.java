@@ -44,8 +44,12 @@ public class TextDebetCardDao implements DebetCardDao {
     }
 
     @Override
-    public void DeleteDebetCard(DebetCard debetCard) {
-        debetCardList.remove(debetCard);
+    public void DeleteDebetCard(int cardnumber) {
+        for (DebetCard elem:debetCardList) {
+            if (elem.getCardnumber() == cardnumber)
+                debetCardList.remove(elem);
+
+        }
     }
 
     @Override

@@ -18,9 +18,8 @@ public class DebetCardServiceImpl implements DebetCardService {
     }
 
     @Override
-    public void DeleteDebetCard(DebetCard debetCard) {
-        if (debetCard!=null)
-            debetCardDao.DeleteDebetCard(debetCard);
+    public void DeleteDebetCard(int cardnumber) {
+      debetCardDao.DeleteDebetCard(cardnumber);
     }
 
     @Override

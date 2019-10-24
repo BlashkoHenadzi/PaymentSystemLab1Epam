@@ -8,7 +8,9 @@ public abstract class PaymentCard {
     private int balance;
     private String cardholderName;
     private String cardholderSurname;
+    public PaymentCard(){
 
+    }
     public  PaymentCard(int cardnumber, LocalDate validthrue, int balance, String cardholderName,String cardholderSurname){
         this.cardholderName = cardholderName;
         this.balance = balance;

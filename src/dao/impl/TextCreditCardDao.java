@@ -43,8 +43,12 @@ public class TextCreditCardDao implements CreditCardDao {
     }
 
     @Override
-    public void DeleteCreditCard(CreditCard creditCard) {
-        creditCardList.remove(creditCard);
+    public void DeleteCreditCard(int id) {
+        for (CreditCard elem:creditCardList) {
+            if (elem.getCardnumber() == id)
+                creditCardList.remove(elem);
+
+        }
     }
 
     @Override

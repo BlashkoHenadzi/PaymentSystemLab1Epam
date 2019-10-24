@@ -1,12 +1,15 @@
 package beans;
 
-public class Client {
+import java.io.Serializable;
+
+public class Client   {
     private int id;
     private String name;
     private String surname;
     private int clientcardscount;
-
-    public Client(String name, String surname, PaymentCard[] clientcards, int clientcardscount,int id) {
+    public Client(){
+    }
+    public Client(String name, String surname, int clientcardscount,int id) {
         this.name = name;
         this.surname = surname;
         this.clientcardscount = clientcardscount;
@@ -43,5 +46,11 @@ public class Client {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+
+        return "id:"+id + " " + name +" "+" "+ surname+" "+"cardscount:"+clientcardscount;
     }
 }
