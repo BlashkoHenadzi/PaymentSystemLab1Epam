@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class CommandProvider {
-    Map<Commands,Command> commandMap = new HashMap<>();
+    Map<Commands,CommandConsole> commandMap = new HashMap<>();
 
     public CommandProvider() {
         commandMap.put(Commands.READCLIENT, new ClientPrint());
@@ -23,11 +23,14 @@ public class CommandProvider {
         commandMap.put(Commands.UPDATEDEBETCARD,new DebetCardUpdate());
         commandMap.put(Commands.DELETEDEBETCARD,new DebetCardDelete());
         commandMap.put(Commands.CREATEDEBETCARD,new DebetCardAdd());
+        commandMap.put(Commands.SORTCLIENTBYNAME,new ClientSortByName());
+        commandMap.put(Commands.SORTCLIENTBYID,new ClientSortById());
+        commandMap.put(Commands.SEARCHCREDITCARDBYNAME,new SearchCreditCardByName());
         commandMap.put(Commands.WRONG,new Wrong());
     }
-    Command getCommand(final int number){
+    CommandConsole getCommand(final int number){
         Commands commandName;
-        Command command;
+        CommandConsole command;
         try{
             command = commandMap.get(Commands.getValueFromID(number));
         }

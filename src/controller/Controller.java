@@ -10,5 +10,6 @@ public class Controller {
     public Commands[] getListOfCommands(){
         return  Commands.values();
     }
+    public String[] getCommandParameters(int id){return provider.getCommand(id).getCommandParameters();}
 
 }

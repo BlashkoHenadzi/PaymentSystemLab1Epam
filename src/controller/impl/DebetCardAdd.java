@@ -3,11 +3,12 @@ package controller.impl;
 
 import beans.DebetCard;
 import controller.Command;
+import controller.CommandConsole;
 import services.factory.ServiceFactory;
 
 import java.time.LocalDate;
 
-public class DebetCardAdd implements Command {
+public class DebetCardAdd implements CommandConsole {
     @Override
     public String execute(String request) {
         String delimiter = ",";
@@ -26,5 +27,10 @@ public class DebetCardAdd implements Command {
             return "Controller return AddException";
         }
         return "Controller return Succesfull";
+    }
+
+    @Override
+    public String[] getCommandParameters() {
+        return new String[]{"cardnumber","valid thrue YYYY-MM-DD","balance","name","surname","accountnumber"};
     }
 }

@@ -32,4 +32,10 @@ public class CreditCardServiceImpl implements CreditCardService {
     public List<CreditCard> ReadCreditCard() {
         return creditCardDao.ReadCreditCard();
     }
+    public CreditCard SearchByName(String name){
+        return creditCardDao.SearchByName(name);
+    }
+
+
+
 }

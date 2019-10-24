@@ -23,13 +23,13 @@ public class DebetCardServiceImpl implements DebetCardService {
     }
 
     @Override
-    public void UpdateCreditCard(DebetCard debetCard) {
+    public void UpdateDebetCard(DebetCard debetCard) {
         if (debetCard!=null)
             debetCardDao.UpdateCreditCard(debetCard);
     }
 
     @Override
-    public List<DebetCard> ReadCreditCard() {
+    public List<DebetCard> ReadDebetCard() {
         return debetCardDao.ReadCreditCard();
     }
 }

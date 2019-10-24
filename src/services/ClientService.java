@@ -10,4 +10,6 @@ public interface ClientService {
     void UpdateClient (Client client);
     List<Client> ReadClient();
     int GetMaxId();
+    void SortById();
+    void SortByName();
 }

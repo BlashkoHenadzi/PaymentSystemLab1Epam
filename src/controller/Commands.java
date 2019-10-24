@@ -16,14 +16,16 @@ public enum Commands {
     READDEBETCARD(9,"Read DebetCards"),
     UPDATEDEBETCARD(10,"Update DebetCard"),
     DELETEDEBETCARD(11, "Delete DebetCard"),
-    COMMANDS(12,"Commands"),
-    EXIT(13,"Exit"),
-    WRONG(14,"--");
+    SORTCLIENTBYNAME(12,"Sort clients by name"),
+    SORTCLIENTBYID(13,"Sort clients by id"),
+    SEARCHCREDITCARDBYNAME(14,"Sarch credit card by name"),
+    COMMANDS(15,"Commands"),
+    EXIT(16,"Exit"),
+    WRONG(17,"--");
     private final int id;
     private final String name;
 
     private static final Map<Integer, Commands> commandsID = new HashMap<>();
-    //private static int[] commandsID;
 
     static {
         for (Commands commandName: Commands.values()) {
@@ -48,4 +50,5 @@ public enum Commands {
     public static Commands getValueFromID(int id){
         return commandsID.get(id);
     }
+
 }

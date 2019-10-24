@@ -17,6 +17,8 @@ public class ClientServiceImpl implements ClientService {
         if ((client.getName().length()>1) && (client.getSurname().length()>1))
             clientDao.AddClient(client);
 
+
+
     }
 
     @Override
@@ -45,4 +47,15 @@ public class ClientServiceImpl implements ClientService {
         }
         return maxid;
     }
+
+    @Override
+    public void SortById() {
+        clientDao.SortById();
+    }
+
+    @Override
+    public void SortByName() {
+        clientDao.SortByName();
+    }
+
 }

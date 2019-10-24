@@ -8,5 +8,6 @@ public interface CreditCardDao {
     void AddCreditCard(CreditCard creditCard);
     void DeleteCreditCard(int cardnumber);
     void UpdateCreditCard(CreditCard creditCard);
+    CreditCard SearchByName(String name);
     List<CreditCard> ReadCreditCard();
 }

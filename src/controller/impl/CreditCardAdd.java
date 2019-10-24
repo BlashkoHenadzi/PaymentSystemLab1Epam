@@ -2,15 +2,17 @@ package controller.impl;
 
 import beans.CreditCard;
 import controller.Command;
+import controller.CommandConsole;
 import services.factory.ServiceFactory;
 
 import java.time.LocalDate;
 
-public class CreditCardAdd implements Command {
+public class CreditCardAdd implements CommandConsole {
     @Override
     public String execute(String request) {
         String delimiter = ",";
         int cardnumber =Integer.parseInt(request.split(delimiter)[0]);
+
         LocalDate validthrue = LocalDate.parse(request.split(delimiter)[1]);
         int balance = Integer.parseInt(request.split(delimiter)[2]);
         String name = request.split(delimiter)[3];
@@ -25,5 +27,10 @@ public class CreditCardAdd implements Command {
             return "Controller return AddException";
         }
         return "Controller return Succesfull";
+    }
+
+    @Override
+    public String[] getCommandParameters() {
+        return new String[]{"cardnumber","validthrue YYYY-MM-DD","balance","name","surname","creditbalance"};
     }
 }

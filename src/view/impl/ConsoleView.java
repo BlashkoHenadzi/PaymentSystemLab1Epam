@@ -30,9 +30,15 @@ public class ConsoleView implements View {
                     currentCommand = Commands.COMMANDS.getID();
                 }
                 else {
+                    String[] parametrsinfo = controller.getCommandParameters(currentCommand);
                      String parameters = "" ;
-                     System.out.println("Please, enter this parameters by spaces:");
-                     parameters = in.next();
+                    for (String paramstr:parametrsinfo) {
+                        System.out.println("Please, enter "+paramstr);
+                        parameters += in.next()+',';
+                    }
+
+
+
                      System.out.println(controller.command(new String[]{String.valueOf(currentCommand),parameters}));
                 }
 

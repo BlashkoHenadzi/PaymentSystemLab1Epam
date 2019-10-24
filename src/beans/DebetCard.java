@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class DebetCard extends PaymentCard {
 private int accountnumber;
-
+    public DebetCard(){}
     public DebetCard(int cardnumber, LocalDate validthrue, int balance, String cardholderName, String cardholderSurname,int accountnumber) {
         super(cardnumber, validthrue, balance, cardholderName, cardholderSurname);
         this.accountnumber = accountnumber;
@@ -16,6 +16,10 @@ private int accountnumber;
 
     public void setAccountnumber(int accountnumber) {
         this.accountnumber = accountnumber;
+    }
+    public String toString() {
+        return "cardnamber:"+getCardnumber()+" validthrue:"+getValidthrue()+" balance:"+getBalance()+" "+getCardholderName()+" "+
+                getCardholderSurname()+" accountnumber:"+accountnumber+'\n';
     }
 }
 

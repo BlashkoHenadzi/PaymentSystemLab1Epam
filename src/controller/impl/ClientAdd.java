@@ -2,10 +2,11 @@ package controller.impl;
 
 import beans.Client;
 import controller.Command;
+import controller.CommandConsole;
 import dao.ClientDao;
 import services.factory.ServiceFactory;
 
-public class ClientAdd implements Command {
+public class ClientAdd implements CommandConsole {
     @Override
     public String execute(String request) {
         String delimiter = ",";
@@ -14,7 +15,7 @@ public class ClientAdd implements Command {
         int clientcardcount = Integer.parseInt(request.split(delimiter)[2]);
 
         try {
-            int id = ServiceFactory.getInstance().getClientService().GetMaxId();
+            int id = ServiceFactory.getInstance().getClientService().GetMaxId()+1;
             ServiceFactory.getInstance().getClientService().AddClient(new Client(name,surname,clientcardcount,id));
         }
         catch (Exception e){
@@ -22,5 +23,10 @@ public class ClientAdd implements Command {
         }
         return "Controller return Succesfull";
 
+    }
+
+    @Override
+    public String[] getCommandParameters() {
+        return new String[]{"name","surname","clientcardcount"};
     }
 }

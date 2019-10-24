@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class CreditCard extends PaymentCard {
 
     private int creditbalance;
+    public CreditCard(){}
     public CreditCard(int cardnumber, LocalDate validthrue, int balance, String cardholderName, String cardholderSurname,int creditbalance) {
         super(cardnumber, validthrue, balance, cardholderName, cardholderSurname);
         this.creditbalance = creditbalance;
@@ -20,7 +21,7 @@ public class CreditCard extends PaymentCard {
 
     @Override
     public String toString() {
-        return "cardnamber"+getCardnumber()+"validthrue:"+getValidthrue()+"balance"+getBalance()+" "+getCardholderName()+" "+
-                getCardholderSurname()+"creditbalance:"+creditbalance;
+        return "cardnamber:"+getCardnumber()+" validthrue:"+getValidthrue()+" balance:"+getBalance()+" "+getCardholderName()+" "+
+                getCardholderSurname()+" creditbalance:"+creditbalance+'\n';
     }
 }

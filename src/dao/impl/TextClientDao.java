@@ -7,6 +7,7 @@ import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class TextClientDao implements ClientDao {
@@ -62,7 +63,7 @@ public class TextClientDao implements ClientDao {
     }
 
     public List<Client> sortId() {
-         clientList.sort(new SortClientByIdASC());
+         clientList.sort(new SortClientById());
          return clientList;
     }
 
@@ -70,8 +71,11 @@ public class TextClientDao implements ClientDao {
     @Override
     public void DeleteClient(int id) {
         for (Client elem:clientList) {
-            if (elem.getId() == id)
+            if (elem.getId() == id) {
                 clientList.remove(elem);
+                writeClientsToFile();
+                break;
+            }
 
         }
     }
@@ -79,9 +83,11 @@ public class TextClientDao implements ClientDao {
     @Override
     public void UpdateClient(Client client) {
         for (Client clientelem :clientList){
-            if (client.getId() == clientelem.getId())
-                clientelem = client;
-
+            if (client.getId() == clientelem.getId()) {
+                clientList.set(clientList.indexOf(clientelem), client);
+                writeClientsToFile();
+                break;
+            }
         }
     }
 
@@ -89,6 +95,12 @@ public class TextClientDao implements ClientDao {
     public List<Client> ReadClient() {
 
         return clientList;
+    }
+    public void SortById(){
+        clientList.sort(new SortClientById());
+    }
+    public void SortByName(){
+        clientList.sort(new SortClientByName());
     }
 
 }

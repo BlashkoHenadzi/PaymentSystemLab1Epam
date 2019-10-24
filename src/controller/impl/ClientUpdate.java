@@ -2,9 +2,10 @@ package controller.impl;
 
 import beans.Client;
 import controller.Command;
+import controller.CommandConsole;
 import services.factory.ServiceFactory;
 
-public class ClientUpdate implements Command {
+public class ClientUpdate implements CommandConsole {
     @Override
     public String execute(String request) {
         String delimiter = ",";
@@ -19,5 +20,10 @@ public class ClientUpdate implements Command {
             return "exception";
         }
         return "succesfull";
+    }
+
+    @Override
+    public String[] getCommandParameters() {
+        return new String[]{"id","name","surname","clientcardcount"};
     }
 }
