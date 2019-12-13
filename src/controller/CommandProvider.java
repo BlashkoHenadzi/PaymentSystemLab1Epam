@@ -27,6 +27,7 @@ public class CommandProvider {
         commandMap.put(Commands.SORTCLIENTBYID,new ClientSortById());
         commandMap.put(Commands.SEARCHCREDITCARDBYNAME,new SearchCreditCardByName());
         commandMap.put(Commands.WRONG,new Wrong());
+        commandMap.put(Commands.MIGRATETODB,new DataBaseMigration());
     }
     CommandConsole getCommand(final int number){
         Commands commandName;

@@ -21,7 +21,8 @@ public enum Commands {
     SEARCHCREDITCARDBYNAME(14,"Sarch credit card by name"),
     COMMANDS(15,"Commands"),
     EXIT(16,"Exit"),
-    WRONG(17,"--");
+    WRONG(17,"--"),
+    MIGRATETODB(18,"Send to DataBase");
     private final int id;
     private final String name;
 

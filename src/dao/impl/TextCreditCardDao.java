@@ -1,11 +1,12 @@
 package dao.impl;
 
 import beans.CreditCard;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.thoughtworks.xstream.XStream;
 import dao.CreditCardDao;
 
-import java.beans.*;
+import java.beans.XMLDecoder;
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,28 +25,16 @@ public class TextCreditCardDao implements CreditCardDao {
         }
     }
     private void writeCreditsToFile() {
+        XStream xStream = new XStream();
+
         try {
             File file = new File(file_path);
             if (!file.exists()) {
                 if (!file.createNewFile())
                     throw new IOException();
             }
-            //FileOutputStream outputStream = new FileOutputStream(file_path);
-            XMLEncoder xmlEncoder = new XMLEncoder(new BufferedOutputStream(
-                    new FileOutputStream(file_path)));
-            xmlEncoder.setPersistenceDelegate(LocalDate.class,
-                    new PersistenceDelegate() {
-                        @Override
-                        protected Expression instantiate(Object localDate, Encoder encdr) {
-                            return new Expression(localDate,
-                                    LocalDate.class,
-                                    "parse",
-                                    new Object[]{localDate.toString()});
-                        }
-                    });
-            xmlEncoder.writeObject(creditCardList);
-            xmlEncoder.close();
-            //outputStream.close();
+            xStream.registerConverter(new LocalDateConverter());
+            xStream.toXML(creditCardList,new FileWriter(file_path));
 
         }
         catch (IOException e){
@@ -54,9 +43,11 @@ public class TextCreditCardDao implements CreditCardDao {
     }
     private void readCreditCardsFromFile() {
         try{
+            XStream xStream = new XStream();
+            xStream.registerConverter(new LocalDateConverter());
            FileInputStream inputStream = new FileInputStream(file_path);
-            XMLDecoder xmlDecoder = new XMLDecoder(inputStream);
-            creditCardList = (ArrayList<CreditCard>)xmlDecoder.readObject();
+            creditCardList = new ArrayList<CreditCard>() ;
+            xStream.fromXML(inputStream,creditCardList);
 
         }
         catch (IOException e){

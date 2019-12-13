@@ -3,7 +3,7 @@ package dao.impl;
 
 import beans.DebetCard;
 import dao.DebetCardDao;
-
+import com.thoughtworks.xstream.XStream;
 import java.beans.*;
 import java.io.*;
 import java.time.LocalDate;
@@ -28,8 +28,11 @@ public class TextDebetCardDao implements DebetCardDao {
     private void readCreditCardsFromFile() {
         try{
             FileInputStream inputStream = new FileInputStream(file_path);
-            XMLDecoder xmlDecoder = new XMLDecoder(inputStream);
-            debetCardList = (ArrayList<DebetCard>)xmlDecoder.readObject();
+            debetCardList = new ArrayList<DebetCard>();
+            XStream xStream = new XStream();
+            xStream.registerConverter(new LocalDateConverter());
+            xStream.fromXML(inputStream,debetCardList);
+
 
         }
         catch (IOException e){
@@ -43,20 +46,10 @@ public class TextDebetCardDao implements DebetCardDao {
                 if (!file.createNewFile())
                     throw new IOException();
             }
-            XMLEncoder xmlEncoder = new XMLEncoder(new BufferedOutputStream(
-                    new FileOutputStream(file_path)));
-            xmlEncoder.setPersistenceDelegate(LocalDate.class,
-                    new PersistenceDelegate() {
-                        @Override
-                        protected Expression instantiate(Object localDate, Encoder encdr) {
-                            return new Expression(localDate,
-                                    LocalDate.class,
-                                    "parse",
-                                    new Object[]{localDate.toString()});
-                        }
-                    });
-            xmlEncoder.writeObject(debetCardList);
-            xmlEncoder.close();
+
+            XStream xStream = new XStream();
+            xStream.registerConverter(new LocalDateConverter());
+            xStream.toXML(debetCardList,new FileWriter(file_path));
         }
         catch (IOException e){
 

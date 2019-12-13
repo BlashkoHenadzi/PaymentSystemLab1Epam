@@ -1,6 +1,7 @@
 package dao.impl;
 
 import beans.Client;
+import com.thoughtworks.xstream.XStream;
 import dao.ClientDao;
 
 import java.beans.XMLDecoder;
@@ -27,9 +28,11 @@ public class TextClientDao implements ClientDao {
 
     private void readClientsFromFile() {
         try{
+            XStream xStream = new XStream();
+            xStream.registerConverter(new LocalDateConverter());
             FileInputStream inputStream = new FileInputStream(file_path);
-            XMLDecoder xmlDecoder = new XMLDecoder(inputStream);
-            clientList = (ArrayList<Client>)xmlDecoder.readObject();
+            clientList = new ArrayList<Client>() ;
+            xStream.fromXML(inputStream,clientList);
 
         }
         catch (IOException e){
@@ -37,18 +40,16 @@ public class TextClientDao implements ClientDao {
         }
     }
     private void writeClientsToFile() {
+        XStream xStream = new XStream();
+
         try {
             File file = new File(file_path);
             if (!file.exists()) {
                 if (!file.createNewFile())
                     throw new IOException();
             }
-                //FileOutputStream outputStream = new FileOutputStream(file_path);
-                XMLEncoder xmlEncoder = new XMLEncoder(new BufferedOutputStream(
-                        new FileOutputStream(file_path)));
-                xmlEncoder.writeObject(clientList);
-                xmlEncoder.close();
-                //outputStream.close();
+            xStream.registerConverter(new LocalDateConverter());
+            xStream.toXML(clientList,new FileWriter(file_path));
 
         }
         catch (IOException e){
