@@ -5,6 +5,7 @@
       <root url="jar://$USER_HOME$/Downloads/xstream.jar/xstream.jar!/" />
       <root url="jar://$USER_HOME$/Desktop/mysql-connector-java-5.1.48.jar!/" />
       <root url="jar://$USER_HOME$/Downloads/dom4j-2.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/resources/log4j-1.2.17.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
