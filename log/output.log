@@ -1,0 +1,6 @@
+logging is starting
+2019-12-14 04:43:43,548  INFO controller.dbmigration.DBController:25 - logging is starting
+2019-12-14 04:47:00,079  INFO controller.dbmigration.DBController:25 - logging is starting
+2019-12-14 04:47:25,966  INFO controller.dbmigration.DBController:49 - logging is stopping(db connection closed)
+2019-12-14 04:47:31,817  INFO controller.dbmigration.DBController:25 - logging is starting
+2019-12-14 04:47:32,330  INFO controller.dbmigration.DBController:49 - logging is stopping(db connection closed)
