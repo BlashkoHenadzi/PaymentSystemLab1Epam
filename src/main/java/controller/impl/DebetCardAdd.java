@@ -30,6 +30,6 @@ public class DebetCardAdd implements CommandConsole {
 
     @Override
     public String[] getCommandParameters() {
-        return new String[]{"cardnumber","valid thrue YYYY-MM-DD","balance","name","surname","accountnumber"};
+        return new String[]{"card-number","valid-thru","balance","card-holder-name","card-holder-surname","account-number"};
     }
 }

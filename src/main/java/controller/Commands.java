@@ -8,11 +8,11 @@ public enum Commands {
     READCLIENT(1,"Read Clients"),
     UPDATECLIENT(2, "Update Client"),
     DELETECLIENT(3,"Delete Client"),
-    CREATECREDITCARD(4,"Add CreditCard"),
+    CREATECREDITCARD(4,"Add Credit-Card"),
     READCREDITCARD(5,"Read CreditCards"),
     UPDATECREDITCARD(6,"Update CreditCard"),
     DELETECREDITCARD(7, "Delete CreditCard"),
-    CREATEDEBETCARD(8,"Add DebitCard"),
+    CREATEDEBETCARD(8,"Add Debit-Card"),
     READDEBETCARD(9,"Read DebetCards"),
     UPDATEDEBETCARD(10,"Update DebitCard"),
     DELETEDEBETCARD(11, "Delete DebitCard"),
@@ -27,10 +27,12 @@ public enum Commands {
     private final String name;
 
     private static final Map<Integer, Commands> commandsID = new HashMap<Integer, Commands>();
+    private static final Map<String, Commands> commandsName = new HashMap<String, Commands>();
 
     static {
-        for (Commands commandName: Commands.values()) {
-            commandsID.put(commandName.id, commandName);
+        for (Commands command: Commands.values()) {
+            commandsID.put(command.id, command);
+            commandsName.put(command.name.toLowerCase(),command);
         }
     }
 
@@ -51,5 +53,8 @@ public enum Commands {
     public static Commands getValueFromID(int id){
         return commandsID.get(id);
     }
+    public static Commands getValueFromName(String name){return commandsName.get(name.toLowerCase());}
+
+
 
 }

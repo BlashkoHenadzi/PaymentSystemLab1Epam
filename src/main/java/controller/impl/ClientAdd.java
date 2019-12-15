@@ -27,6 +27,6 @@ public class ClientAdd implements CommandConsole {
 
     @Override
     public String[] getCommandParameters() {
-        return new String[]{"name","surname","clientcardcount"};
+        return new String[]{"name","surname","client-cards-count"};
     }
 }

@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <clients>
-    <client id="1">
+    <client id="1908">
+        <name>tnyrbefwd</name>
+        <surname>ythrgewf</surname>
+        <client-cards-count>8521</client-cards-count>
+    </client>
+    <client id="1909">
         <name>jmhgnfbfd</name>
         <surname>nhgfbd</surname>
         <client-cards-count>852</client-cards-count>
     </client>
-    <client id="2">
+    <client id="1910">
         <name>tnyrbefwd</name>
         <surname>ythrgewf</surname>
         <client-cards-count>8521</client-cards-count>
+    </client>
+    <client id="1911">
+        <name>jmhgnfbfd</name>
+        <surname>nhgfbd</surname>
+        <client-cards-count>852</client-cards-count>
     </client>
 </clients>

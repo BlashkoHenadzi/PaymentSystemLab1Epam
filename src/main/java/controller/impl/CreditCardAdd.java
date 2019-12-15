@@ -31,6 +31,6 @@ public class CreditCardAdd implements CommandConsole {
 
     @Override
     public String[] getCommandParameters() {
-        return new String[]{"cardnumber","validthrue YYYY-MM-DD","balance","name","surname","creditbalance"};
+        return new String[]{"card-number","valid-thru","balance","card-holder-name","card-holder-surname","credit-balance"};
     }
 }
