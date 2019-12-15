@@ -2,7 +2,6 @@ package dao.impl;
 
 import beans.Client;
 import beans.Clients;
-import com.thoughtworks.xstream.XStream;
 import dao.ClientDao;
 
 import javax.xml.bind.JAXBContext;

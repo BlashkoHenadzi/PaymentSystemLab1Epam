@@ -1,7 +1,8 @@
 package dao.impl;
 import java.time.LocalDate;
-import com.thoughtworks.xstream.converters.basic.AbstractBasicConverter;
-    public class LocalDateConverter extends AbstractBasicConverter {
+import org.codehaus.plexus.component.configurator.converters.basic.AbstractBasicConverter;
+
+public class LocalDateConverter extends AbstractBasicConverter {
 
 
         public boolean canConvert(Class type) {

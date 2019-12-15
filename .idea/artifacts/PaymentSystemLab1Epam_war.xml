@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PaymentSystemLab1Epam:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>PaymentSystemLab1Epam</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="PaymentSystemLab1Epam-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="PaymentSystemLab1Epam:war exploded" />
+    </root>
+  </artifact>
+</component>
