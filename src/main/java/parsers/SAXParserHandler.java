@@ -43,7 +43,7 @@ public class SAXParserHandler extends DefaultHandler {
         try {
             documentBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            throw new ParserException("Error in initialize DOM Parser" + e);
+            throw new ParserException("Error in initialize SAX Parser" + e);
         }
     }
 

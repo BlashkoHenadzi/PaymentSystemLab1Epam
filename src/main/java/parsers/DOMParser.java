@@ -36,7 +36,12 @@ public class DOMParser {
 
     public DOMParser() {
 
-
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        try {
+            documentBuilder = factory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            throw new ParserException("Error in initialize DOM Parser" + e);
+        }
     }
 
     public boolean getData(String path, Class type) throws ParserException {
