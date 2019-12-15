@@ -1,7 +1,6 @@
 package controller.impl;
 
-import beans.Client;
-import controller.Command;
+import beans.User;
 import controller.CommandConsole;
 import services.factory.ServiceFactory;
 
@@ -14,7 +13,7 @@ public class ClientUpdate implements CommandConsole {
         String surname = request.split(delimiter)[2];
         int clientcardcount = Integer.parseInt(request.split(delimiter)[3]);
         try {
-            ServiceFactory.getInstance().getClientService().UpdateClient(new Client(name, surname, clientcardcount, id));
+            ServiceFactory.getInstance().getClientService().UpdateClient(new User(name, surname, clientcardcount, id));
         }
         catch (Exception e){
             return "exception";

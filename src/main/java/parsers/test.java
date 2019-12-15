@@ -1,6 +1,6 @@
 package parsers;
 
-import beans.Client;
+import beans.User;
 import beans.CreditCard;
 import beans.DebitCard;
 import org.xml.sax.SAXException;
@@ -16,7 +16,7 @@ public class test {
 
     public static void main(String[] args) {
 //        DOMParser domParser = new DOMParser();
-//        domParser.getData("clients.xml",Client.class);
+//        domParser.getData("clients.xml",User.class);
 //        domParser.getData("creditCards.xml", CreditCard.class);
 //        domParser.getData("debitCards.xml", DebitCard.class);
         StAXParser saxParser = new StAXParser();
@@ -30,7 +30,7 @@ public class test {
             e.printStackTrace();
         }
 
-       saxParser.getData("clients.xml",Client.class);
+       saxParser.getData("clients.xml", User.class);
         saxParser.getData("creditCards.xml", CreditCard.class);
         saxParser.getData("debitCards.xml", DebitCard.class);
 

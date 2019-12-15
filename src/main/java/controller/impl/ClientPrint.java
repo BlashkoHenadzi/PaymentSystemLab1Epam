@@ -1,7 +1,5 @@
 package controller.impl;
 
-import beans.Client;
-import controller.Command;
 import controller.CommandConsole;
 import services.factory.ServiceFactory;
 

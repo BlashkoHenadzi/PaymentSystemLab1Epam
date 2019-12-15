@@ -1,14 +1,14 @@
 package services;
 
-import beans.Client;
+import beans.User;
 
 import java.util.List;
 
 public interface ClientService {
-    void AddClient(Client client);
+    void AddClient(User user);
     void DeleteClient(int id);
-    void UpdateClient (Client client);
-    List<Client> ReadClient();
+    void UpdateClient (User user);
+    List<User> ReadClient();
     int GetMaxId();
     void SortById();
     void SortByName();

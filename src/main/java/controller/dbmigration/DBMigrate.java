@@ -1,6 +1,6 @@
 package controller.dbmigration;
 
-import beans.Client;
+import beans.User;
 import beans.CreditCard;
 import beans.DebitCard;
 import beans.PaymentCard;
@@ -40,8 +40,8 @@ public class DBMigrate {
         for (PaymentCard paymentCard:DaoFactory.getInstance().getDebetCardDAO().ReadCreditCard()){
             dbController.AddDebitCardToDB((DebitCard)paymentCard);
         }
-        for(Client client:DaoFactory.getInstance().getClientDAO().ReadClient()){
-            dbController.AddClientToDB(client);
+        for(User user :DaoFactory.getInstance().getClientDAO().ReadClient()){
+            dbController.AddClientToDB(user);
         }
 
     }

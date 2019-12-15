@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Commands {
-    CREATECLIENT(0,"Add Client"),
+    CREATECLIENT(0,"Add User"),
     READCLIENT(1,"Read Clients"),
-    UPDATECLIENT(2, "Update Client"),
-    DELETECLIENT(3,"Delete Client"),
+    UPDATECLIENT(2, "Update User"),
+    DELETECLIENT(3,"Delete User"),
     CREATECREDITCARD(4,"Add Credit-Card"),
     READCREDITCARD(5,"Read CreditCards"),
     UPDATECREDITCARD(6,"Update CreditCard"),

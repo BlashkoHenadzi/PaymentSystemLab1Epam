@@ -1,4 +1,4 @@
-<%@ page import="beans.Client" %>
+<%@ page import="beans.User" %>
 <%@ page import="beans.PaymentCard" %>
 <%@ page import="beans.CreditCard" %>
 <%@ page import="java.util.List" %>
@@ -39,9 +39,9 @@
         lists.add("listStax");
         for (String list :
                 lists) {
-            List<Client> clients = (List<Client>) request.getAttribute(list);
-            if (clients != null && !clients.isEmpty()) {
-                for (Client s : clients) {
+            List<User> users = (List<User>) request.getAttribute(list);
+            if (users != null && !users.isEmpty()) {
+                for (User s : users) {
                     System.out.println("<tr>");
                     System.out.println("<td>" + s.getName() + "</td>");
                     System.out.println("<td>" + s.getClientCardsCount() + "</td>");

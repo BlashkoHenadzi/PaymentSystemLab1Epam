@@ -1,12 +1,12 @@
 package dao.impl;
 
-import beans.Client;
+import beans.User;
 
 import java.util.Comparator;
 
-public class SortClientById implements Comparator<Client> {
+public class SortClientById implements Comparator<User> {
     @Override
-    public int compare(Client o1, Client o2) {
+    public int compare(User o1, User o2) {
         return  o1.getId()-o2.getId();
     }
 }

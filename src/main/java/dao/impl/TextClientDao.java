@@ -1,6 +1,6 @@
 package dao.impl;
 
-import beans.Client;
+import beans.User;
 import beans.Clients;
 import dao.ClientDao;
 
@@ -8,13 +8,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Properties;
 
 public class TextClientDao implements ClientDao {
     private static String file_path = "clients.xml";
@@ -61,12 +56,12 @@ public class TextClientDao implements ClientDao {
     }
 
     @Override
-    public void AddClient(Client client) {
-        clientList.getClientList().add(client);
+    public void AddClient(User user) {
+        clientList.getClientList().add(user);
         writeClientsToFile();
     }
 
-    public List<Client> sortId() {
+    public List<User> sortId() {
          clientList.getClientList().sort(new SortClientById());
          return clientList.getClientList();
     }
@@ -74,7 +69,7 @@ public class TextClientDao implements ClientDao {
 
     @Override
     public void DeleteClient(int id) {
-        for (Client elem:clientList.getClientList()) {
+        for (User elem:clientList.getClientList()) {
             if (elem.getId() == id) {
                 clientList.getClientList().remove(elem);
                 writeClientsToFile();
@@ -85,10 +80,10 @@ public class TextClientDao implements ClientDao {
     }
 
     @Override
-    public void UpdateClient(Client client) {
-        for (Client clientelem :clientList.getClientList()){
-            if (client.getId() == clientelem.getId()) {
-                clientList.getClientList().set(clientList.getClientList().indexOf(clientelem), client);
+    public void UpdateClient(User user) {
+        for (User clientelem :clientList.getClientList()){
+            if (user.getId() == clientelem.getId()) {
+                clientList.getClientList().set(clientList.getClientList().indexOf(clientelem), user);
                 writeClientsToFile();
                 break;
             }
@@ -96,7 +91,7 @@ public class TextClientDao implements ClientDao {
     }
 
     @Override
-    public List<Client> ReadClient() {
+    public List<User> ReadClient() {
 
         return clientList.getClientList();
     }

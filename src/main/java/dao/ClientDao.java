@@ -1,14 +1,14 @@
 package dao;
 
-import beans.Client;
+import beans.User;
 
 import java.util.List;
 
 public interface ClientDao {
-    void AddClient(Client client);
+    void AddClient(User user);
     void DeleteClient(int id);
-    void UpdateClient (Client client);
+    void UpdateClient (User user);
     void SortById();
     void SortByName();
-    List<Client> ReadClient();
+    List<User> ReadClient();
 }

@@ -1,6 +1,6 @@
 package controller.dbmigration;
 
-import beans.Client;
+import beans.User;
 import beans.CreditCard;
 import beans.DebitCard;
 import org.apache.log4j.LogManager;
@@ -76,15 +76,15 @@ public class DBController {
         }
     }
 
-    public void AddClientToDB(Client client) {
+    public void AddClientToDB(User user) {
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate("INSERT INTO `users`(`id`, `name`, `surname`, `clientcardscount`) " +
-                    "VALUES (" + client.getId() + ",'" +
-                    client.getName() + "','" + client.getSurname() + "'," + client.getClientCardsCount()+")");
+                    "VALUES (" + user.getId() + ",'" +
+                    user.getName() + "','" + user.getSurname() + "'," + user.getClientCardsCount()+")");
 
         } catch (SQLException e) {
-            logger.error("cannot added client to DB. Returned:" + e.getMessage());
+            logger.error("cannot added user to DB. Returned:" + e.getMessage());
         }
     }
 }

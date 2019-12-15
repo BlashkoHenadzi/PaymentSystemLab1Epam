@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="beans.Client" %>
+<%@ page import="beans.User" %>
 <%@ page import="beans.PaymentCard" %>
 <%@ page import="beans.CreditCard" %>
 <%@ page import="beans.DebitCard" %>

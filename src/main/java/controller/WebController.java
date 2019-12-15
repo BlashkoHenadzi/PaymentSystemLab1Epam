@@ -1,12 +1,10 @@
 package controller;
-import beans.Client;
+import beans.User;
 import beans.CreditCard;
 import beans.DebitCard;
-import beans.PaymentCard;
 import dao.factory.DaoFactory;
 import jdk.nashorn.internal.runtime.ParserException;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import parsers.DOMParser;
 import parsers.SAXParser;
 import parsers.StAXParser;
@@ -18,7 +16,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.Console;
 import java.io.IOException;
 import java.util.List;
 @MultipartConfig
@@ -41,13 +38,13 @@ public class WebController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        List<Client> list = null;
-        List<Client> list1 = null;
-        List<Client> list2 = null;
+        List<User> list = null;
+        List<User> list1 = null;
+        List<User> list2 = null;
 
 
         try {
-            parserDOM.getData("clients.xml", Client.class);
+            parserDOM.getData("clients.xml", User.class);
             list = DaoFactory.getInstance().getClientDAO().ReadClient();
             parserSAX.getData("clients.xml", CreditCard.class);
             list1 = DaoFactory.getInstance().getClientDAO().ReadClient();

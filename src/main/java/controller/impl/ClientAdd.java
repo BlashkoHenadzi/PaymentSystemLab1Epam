@@ -1,9 +1,7 @@
 package controller.impl;
 
-import beans.Client;
-import controller.Command;
+import beans.User;
 import controller.CommandConsole;
-import dao.ClientDao;
 import services.factory.ServiceFactory;
 
 public class ClientAdd implements CommandConsole {
@@ -16,7 +14,7 @@ public class ClientAdd implements CommandConsole {
 
         try {
             int id = ServiceFactory.getInstance().getClientService().GetMaxId()+1;
-            ServiceFactory.getInstance().getClientService().AddClient(new Client(name,surname,clientcardcount,id));
+            ServiceFactory.getInstance().getClientService().AddClient(new User(name,surname,clientcardcount,id));
         }
         catch (Exception e){
             return "Controller return AddException";
