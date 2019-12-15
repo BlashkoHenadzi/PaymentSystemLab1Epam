@@ -1,11 +1,12 @@
 package dao.factory;
 
-import dao.abstraction.*;
+
 import dao.datasource.PooledConnection;
 import dao.exception.DaoException;
 import dao.factory.connection.DaoConnection;
 import dao.factory.connection.MySqlConnection;
 import dao.impl.mysql.*;
+import dao.interfaces.*;
 
 
 import javax.sql.DataSource;

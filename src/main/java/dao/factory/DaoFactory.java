@@ -3,6 +3,7 @@ package dao.factory;
 import dao.abstraction.*;
 import dao.exception.DaoException;
 import dao.factory.connection.DaoConnection;
+import dao.interfaces.*;
 import org.apache.log4j.Logger;
 
 import java.util.ResourceBundle;
